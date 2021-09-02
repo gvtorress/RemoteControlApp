@@ -1,0 +1,18 @@
+{
+  "name": "remote-control-server",
+  "version": "1.0.0",
+  "description": "server that gets the command from the app and runs a command line or a python script, depending on what was sent by the app",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gabriel Torres",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  }
+}
