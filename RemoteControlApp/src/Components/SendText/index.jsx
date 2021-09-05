@@ -9,8 +9,8 @@ import { styles } from './styles';
 export function SendText(){
   return (
     <View style={styles.container}>
-          <TextInput style={styles.input}/>
-        <View>
+        <TextInput />
+        <View style={styles.icon}>
           <Image 
             source={require("../../Assets/textInputIcon.png")}
           />

@@ -11,10 +11,12 @@ export const styles = StyleSheet.create({
         borderRadius: 8,
         backgroundColor: googleBackground,
         alignItems: 'center',
-        margin: 60,
-        flexDirection: 'row'
+        marginTop: 40,
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        marginBottom: 20
     },
-    input: {
-        width: '85%'
+    icon: {
+        marginRight: 10
     }
 })
