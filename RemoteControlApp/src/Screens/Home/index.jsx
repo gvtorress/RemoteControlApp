@@ -6,6 +6,7 @@ import { Programs } from '../../Components/Programs'
 import { Button } from '../../Components/Button'
 import { DoubleButton } from '../../Components/DoubleButton'
 import { MovieButton } from '../../Components/MovieButton'
+import { MouseMove } from '../../Components/MouseMove'
 
 import { theme } from '../../global/@styles/theme'
 
@@ -71,6 +72,9 @@ export function Home() {
                         text="Prime Video"
                         icon={require("../../Assets/amazonprimevideo.png")}
                     />
+                </View>
+                <View>
+                    <MouseMove />
                 </View>
             </View>
         </View>
