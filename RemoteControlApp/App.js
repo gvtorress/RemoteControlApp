@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 
 import { Home } from './src/Screens/Home/index.jsx'
 import { Background } from './src/Components/Background/index.jsx'
+import { Mouse } from './src/Screens/Mouse/index.jsx'
 
 export default function App() {
     return (
@@ -13,7 +14,7 @@ export default function App() {
                 backgroundColor="transparent"
                 translucent
             />
-            <Home></Home>
+            <Mouse></Mouse>
         </Background>
     )
 }
