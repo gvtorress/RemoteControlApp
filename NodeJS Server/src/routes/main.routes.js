@@ -40,7 +40,7 @@ function execCommand(command) {
     })
 }
 
-router.get('/python', async (req, res) => {
+router.post('/python', async (req, res) => {
     const filePath =
         'C:/Users/Gabriel Torres/Desktop/Pessoal/Projetos/Projeto App Controle Remoto/Python Program/spawnScript.py'
     const { type, command } = req.body
@@ -48,13 +48,14 @@ router.get('/python', async (req, res) => {
     try {
         runPythonScript(filePath, type, command)
         console.log('Connected')
+        console.log(type, command)
         res.json({ message: 'Command sent' })
     } catch (err) {
         res.json({ error: true, message: err.message })
     }
 })
 
-router.get('/command', async (req, res) => {
+router.post('/command', async (req, res) => {
     const { command } = req.body
     // const command = 'start chrome www.google.com'
     try {

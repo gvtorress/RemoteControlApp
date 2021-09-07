@@ -28,6 +28,8 @@ def changeProgram(time):
 
 def writeText(text):
     for char in text:
+        if (char == "_"):
+            pyautogui.press()
         pyautogui.press(char)
     pyautogui.press('enter')
 
