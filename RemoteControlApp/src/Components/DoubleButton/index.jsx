@@ -16,9 +16,9 @@ export function DoubleButton(props){
     }
 
     if (volume === "down"){
-      body.command = "VolumeDown"
+      body.command = `${props.text}Down`
     } else {
-      body.command = "VolumeUp"
+      body.command = `${props.text}Up`
     }
 
     const response = await api.post('/python', body)
@@ -29,7 +29,7 @@ export function DoubleButton(props){
               <TouchableOpacity onPress={() => runProgram("up")}>
                 <Image style={styles.icon} source={props.aboveicon} />
               </TouchableOpacity>
-                <Text style={styles.text}>{ props.text}</Text>
+                <Text style={styles.text}>{props.text}</Text>
               <TouchableOpacity onPress={() => runProgram("down")}>
                 <Image style={styles.icon} source={props.belowicon} />
               </TouchableOpacity>
