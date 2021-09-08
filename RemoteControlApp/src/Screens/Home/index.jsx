@@ -73,9 +73,6 @@ export function Home() {
                         icon={require("../../Assets/amazonprimevideo.png")}
                     />
                 </View>
-                <View>
-                    <MouseMove />
-                </View>
             </View>
         </View>
     )

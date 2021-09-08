@@ -28,13 +28,11 @@ def changeProgram(time):
 
 def writeText(text):
     for char in text:
-        if (char == "_"):
-            pyautogui.press()
         pyautogui.press(char)
     pyautogui.press('enter')
 
 def runCommand(command):
-    if (command == "Back"):
+    if (command == "Rewind"):
         pyautogui.press("left")
     elif (command == "ChannelDown"):
         pyautogui.keyDown("ctrl")
@@ -50,9 +48,10 @@ def runCommand(command):
         pyautogui.press("f")
     elif (command == "Mute"):
         pyautogui.press("m")
-    elif (command == "PlayPause"):
+    elif (command == "Play" or command == "Pause"):
         pyautogui.press("space")
-    elif (command == "TheaterMode"):
+    elif (command == "Theater Mode"):
+        pyautogui.press("t")
         pyautogui.keyDown("alt")
         pyautogui.press("t")
         pyautogui.keyUp("alt")

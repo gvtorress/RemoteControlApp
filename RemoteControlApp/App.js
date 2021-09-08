@@ -14,7 +14,7 @@ export default function App() {
                 backgroundColor="transparent"
                 translucent
             />
-            <Mouse></Mouse>
+            <Home></Home>
         </Background>
     )
 }
