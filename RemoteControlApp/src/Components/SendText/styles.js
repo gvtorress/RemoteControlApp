@@ -16,6 +16,10 @@ export const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         marginBottom: 20
     },
+    input: {
+        width: '80%',
+        height: '80%'
+    },
     icon: {
         marginRight: 10
     }

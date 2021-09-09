@@ -16,9 +16,9 @@ export function DoubleButton(props){
     }
 
     if (volume === "down"){
-      body.command = `${props.text}Down`
+      body.command = `${props.text} Down`
     } else {
-      body.command = `${props.text}Up`
+      body.command = `${props.text} Up`
     }
 
     const response = await api.post('/python', body)

@@ -5,19 +5,18 @@ import { theme } from '../../global/@styles/theme'
 const { googleBackground } = theme.colors
 
 export const styles = StyleSheet.create({
-    // container: {
-    //     alignContent: 'stretch'
-    // },
+    container: {
+        marginTop: 20
+    },
     icon: {
         width: (Dimensions.get('window').width - 220) / 3,
         height: (Dimensions.get('window').width - 220) / 3,
         borderRadius: 8,
-        marginBottom: 10,
+        marginBottom: 5,
         alignSelf: 'center'
     },
     text: {
         color: googleBackground,
-        marginBottom: 30,
         width: (Dimensions.get('window').width - 220) / 3 + 2,
         textAlign: 'center'
     },

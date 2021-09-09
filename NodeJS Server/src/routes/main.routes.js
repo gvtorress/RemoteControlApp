@@ -49,7 +49,7 @@ router.post('/python', async (req, res) => {
         runPythonScript(filePath, type, command)
         console.log('Connected')
         console.log(type, command)
-        res.json({ message: 'Command sent' })
+        res.json({ message: 'Command received' })
     } catch (err) {
         res.json({ error: true, message: err.message })
     }
@@ -61,7 +61,7 @@ router.post('/command', async (req, res) => {
     try {
         execCommand(command)
         console.log('Connected')
-        res.json({ message: 'Command sent' })
+        res.json({ message: 'Command received' })
     } catch (err) {
         res.json({ error: true, message: err.message })
     }

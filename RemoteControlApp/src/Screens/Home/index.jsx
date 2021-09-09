@@ -22,7 +22,7 @@ export function Home() {
                 <View style={styles.buttons}>
                     <DoubleButton aboveicon={require("../../Assets/addIcon.png")} belowicon={require("../../Assets/minusIcon.png")} text="Volume" />
                     <View>
-                        <Button icon={require("../../Assets/fullScreenIcon.png")} text="FullScreen" />
+                        <Button icon={require("../../Assets/fullScreenIcon.png")} text="Full Screen" />
                         <Button icon={require("../../Assets/muteIcon.png")} text="Mute" />
                     </View>
                     <View>
@@ -32,11 +32,18 @@ export function Home() {
                     <DoubleButton aboveicon={require("../../Assets/addIcon.png")} belowicon={require("../../Assets/minusIcon.png")} text="Channel" />
                 </View>
                 <View style={styles.buttons}>
+                    <Button icon={require("../../Assets/moveMouseIcon.png")} text="Mouse" />
+                    <Button icon={require("../../Assets/changeScreenIcon.png")} text="Change Screen" />
+                    <Button icon={require("../../Assets/reloadIcon.png")} text="Reload" />
+                    <Button icon={require("../../Assets/closeTabIcon.png")} text="Close" />
+                </View>
+                <View style={styles.buttons}>
                     <MovieButton icon={require("../../Assets/rewindIcon.png")} text="Rewind"/>
                     <MovieButton icon={require("../../Assets/playIcon.png")} text="Play"/>
                     <MovieButton icon={require("../../Assets/pauseIcon.png")} text="Pause"/>
                     <MovieButton icon={require("../../Assets/forwardIcon.png")} text="Forward"/>
                 </View>
+                <View style={{marginTop: 50}}></View>
                 <View style={styles.programs}>
                     <Programs 
                         color={iconBackground} 

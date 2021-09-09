@@ -6,8 +6,9 @@ const { googleBackground } = theme.colors
 
 export const styles = StyleSheet.create({
     container: {
-        width: 70,
-        height: 50
+        width: 50,
+        height: 50,
+        marginBottom: 10
     },
     content: {
         width: 30,
@@ -24,5 +25,8 @@ export const styles = StyleSheet.create({
         color: googleBackground,
         fontSize: 10,
         textAlign: 'center'
+    },
+    full: {
+        justifyContent: 'space-between'
     }
 })

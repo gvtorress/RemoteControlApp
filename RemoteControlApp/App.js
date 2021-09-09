@@ -5,6 +5,8 @@ import { StyleSheet, Text, View } from 'react-native'
 import { Home } from './src/Screens/Home/index.jsx'
 import { Background } from './src/Components/Background/index.jsx'
 import { Mouse } from './src/Screens/Mouse/index.jsx'
+import { AppRoutes } from './src/routes/app.routes.jsx'
+import { Routes } from './src/routes/index.js'
 
 export default function App() {
     return (
@@ -14,7 +16,7 @@ export default function App() {
                 backgroundColor="transparent"
                 translucent
             />
-            <Home></Home>
+            <AppRoutes />
         </Background>
     )
 }

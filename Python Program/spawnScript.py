@@ -34,17 +34,17 @@ def writeText(text):
 def runCommand(command):
     if (command == "Rewind"):
         pyautogui.press("left")
-    elif (command == "ChannelDown"):
+    elif (command == "Channel Down"):
         pyautogui.keyDown("ctrl")
         pyautogui.press("pagedown")
         pyautogui.keyUp("ctrl")
-    elif (command == "ChannelUp"):
+    elif (command == "Channel Up"):
         pyautogui.keyDown("ctrl")
         pyautogui.press("pageup")
         pyautogui.keyUp("ctrl")
     elif (command == "Forward"):
         pyautogui.press("right")
-    elif (command == "FullScreen"):
+    elif (command == "Full Screen"):
         pyautogui.press("f")
     elif (command == "Mute"):
         pyautogui.press("m")
@@ -55,14 +55,22 @@ def runCommand(command):
         pyautogui.keyDown("alt")
         pyautogui.press("t")
         pyautogui.keyUp("alt")
-    elif (command == "VolumeDown"):
+    elif (command == "Volume Down"):
         pyautogui.keyDown("shift")
         pyautogui.press("down")
         pyautogui.keyUp("shift")
-    elif (command == "VolumeUp"):
+    elif (command == "Volume Up"):
         pyautogui.keyDown("shift")
         pyautogui.press("up")
         pyautogui.keyUp("shift")
+    elif (command == "Reload"):
+        pyautogui.keyDown("ctrl")
+        pyautogui.press("f5")
+        pyautogui.keyUp("ctrl")
+    elif (command == "Close"):
+        pyautogui.keyDown("ctrl")
+        pyautogui.press("w")
+        pyautogui.keyUp("ctrl")
         
 def longMouseMove(move):
     if (move == "Right"):
@@ -112,9 +120,9 @@ elif (sys.argv[1] == "LongMove"):
     longMouseMove(sys.argv[2])
 elif (sys.argv[1] == "SmallMove"):
     smallMouseMove(sys.argv[2])
-elif (sys.argv[1] == "ChangeScreen"):
+elif (sys.argv[1] == "Change Screen"):
     changeScreen()
-elif (sys.argv[1] == "ChangeProgram"):
+elif (sys.argv[1] == "Change Program"):
     changeProgram(sys.argv[2])
     
 
