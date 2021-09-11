@@ -1,8 +1,0 @@
-Aplicativo que interage com o servidor aberto em meu computador, para que eu possa enviar comando ao computador, como por exemplo
-mudar de aba, abrir netflix/twitch/amazon prime, etc. controlar o volume, pular anuncio, pause e play, proximo episódio/vídeo, full screen,
-selecionar outro canal, etc.
-
-Como fazer:
-Abrir um servidor no computador a ser controlado. O celular deve estar conectado no mesmo Wi-Fi que o computador para funcionar.
-Aplicativo com interface com as funcionalidades acima, manda requisições para o servidor abrir arquivos do computador. Esses arquivos
-serão arquivos com as diferentes funcionalidas, criadas em node.js ou python.
