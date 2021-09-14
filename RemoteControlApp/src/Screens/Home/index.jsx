@@ -17,7 +17,7 @@ export function Home() {
     return (
         <ScrollView contentContainerStyle={styles.container} scrollEnabled="false" keyboardShouldPersistTaps="never">
             <View>
-                <SendText></SendText>
+                <SendText screen="Home"/>
                 <View style={styles.buttons}>
                     <DoubleButton aboveicon={require("../../Assets/addIcon.png")} belowicon={require("../../Assets/minusIcon.png")} text="Volume" />
                     <View>

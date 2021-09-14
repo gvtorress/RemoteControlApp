@@ -4,7 +4,11 @@ import {
   View, Image, Text, TouchableOpacity
 } from 'react-native';
 
-import { api } from '../../services/api';
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { COLLECTION_CURRENTIP } from '../../config/database';
+
+import { API } from '../../services/api';
 
 import { styles } from './styles';
 
@@ -21,7 +25,13 @@ export function DoubleButton(props){
       body.command = `${props.text} Up`
     }
 
-    const response = await api.post('/python', body)
+    const ip = await AsyncStorage.getItem(COLLECTION_CURRENTIP)
+    const ipParse = JSON.parse(ip)
+
+    const api = axios.create({
+      baseURL: `http://${ipParse}:8000/main`
+    })
+    await api.post('/python', body)
   }
   return (
       <View style={styles.container}>

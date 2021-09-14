@@ -62,6 +62,10 @@ function execCommand(command) {
     })
 }
 
+router.get('/', async (req, res) => {
+    res.json({ message: 'Connected' })
+})
+
 router.post('/python', async (req, res) => {
     const filePath =
         'C:/Users/Gabriel Torres/Desktop/Pessoal/Projetos/Projeto App Controle Remoto/Python Program/spawnScript.py'

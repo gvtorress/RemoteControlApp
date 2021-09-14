@@ -6,6 +6,7 @@ import { theme } from '../global/@styles/theme';
 
 import { Home } from '../Screens/Home';
 import { Mouse } from '../Screens/Mouse';
+import { IPSignIn } from '../Screens/IPSignIn';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -20,6 +21,10 @@ export function AppRoutes() {
                     }
                 }}
             >
+                <Screen
+                    name="IPSignIn"
+                    component={IPSignIn}
+                />
                 <Screen
                     name="Home"
                     component={Home}

@@ -6,7 +6,11 @@ import {
 
 import { useNavigation } from '@react-navigation/core';
 
-import { api } from '../../services/api';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
+import { COLLECTION_CURRENTIP } from '../../config/database';
+
+import { API } from '../../services/api';
 
 import { styles } from './styles';
 
@@ -46,8 +50,13 @@ export function Button(props){
       body.type = "Command"
       body.command = props.text
     }
-
-    const response = await api.post('/python', body)
+    
+    const ip = await AsyncStorage.getItem(COLLECTION_CURRENTIP)
+    const ipParse = JSON.parse(ip)
+    const api = axios.create({
+      baseURL: `http://${ipParse}:8000/main`
+    })
+    await api.post('/python', body)
   }
 
   return (

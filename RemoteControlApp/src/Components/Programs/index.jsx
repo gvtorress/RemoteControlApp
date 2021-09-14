@@ -2,7 +2,11 @@ import React from 'react'
 
 import { Image, Text, View, TouchableOpacity } from 'react-native'
 
-import { api } from '../../services/api'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { COLLECTION_CURRENTIP } from '../../config/database'
+import axios from 'axios'
+
+import { API } from '../../services/api'
 
 import { styles } from './styles'
 
@@ -32,8 +36,13 @@ export function Programs(props) {
       case "Prime Video":
         body.command = "start chrome https://www.primevideo.com/"
     }
+    const ip = await AsyncStorage.getItem(COLLECTION_CURRENTIP)
+    const ipParse = JSON.parse(ip)
 
-    const response = api.post('/command', body)
+    const api = axios.create({
+      baseURL: `http://${ipParse}:8000/main`
+    })
+    await api.post('/command', body)
   }
 
     return (

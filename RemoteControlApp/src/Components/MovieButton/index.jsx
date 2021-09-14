@@ -4,7 +4,10 @@ import {
   View, Image, Text, TouchableOpacity
 } from 'react-native';
 
-import { api } from '../../services/api';
+import { API } from '../../services/api';
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { COLLECTION_CURRENTIP } from '../../config/database';
 
 import { styles } from './styles';
 
@@ -14,8 +17,13 @@ export function MovieButton(props){
       type: "Command",
       command: props.text
     }
+    const ip = await AsyncStorage.getItem(COLLECTION_CURRENTIP)
+    const ipParse = JSON.parse(ip)
 
-    const response = await api.post('/python', body)
+    const api = axios.create({
+      baseURL: `http://${ipParse}:8000/main`
+    })
+    await api.post('/python', body)
 
   }
 

@@ -1,7 +1,25 @@
 import axios from 'axios'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { COLLECTION_CURRENTIP } from '../config/database'
 
-const api = axios.create({
-    baseURL: 'http://192.168.0.184:8000/main'
-})
+export function API() {
+    let storage = ''
+    let storageParse = ''
 
-export { api }
+    async function storageFunc() {
+        storage = await AsyncStorage.getItem(COLLECTION_CURRENTIP)
+        storageParse = JSON.parse(storage)
+        // return new Promise((resolve, reject) => {
+        //     resolve(storageParse)
+        // })
+    }
+
+    storageFunc().then(console.log(storageParse))
+
+    console.log(storageParse)
+
+    const api = axios.create({
+        baseURL: `http://${storageParse}:8000/main`
+    })
+    return api
+}

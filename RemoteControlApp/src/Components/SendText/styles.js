@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     },
     input: {
         width: '80%',
-        height: '80%'
+        height: '100%'
     },
     icon: {
         marginRight: 10
