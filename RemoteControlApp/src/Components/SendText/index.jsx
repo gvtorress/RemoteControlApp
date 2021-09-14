@@ -17,13 +17,13 @@ export function SendText(){
       type: "Write",
       command: text
     }
-
     const response = await api.post('/python', body)
+    setText("")
   }
 
   return (
     <View style={styles.container}>
-        <TextInput style={styles.input} onChangeText={setText}/>
+        <TextInput style={styles.input} onChangeText={setText} value={text}/>
         <TouchableOpacity onPress={() => writeText()}>
           <View style={styles.icon}>
             <Image 

@@ -108,6 +108,15 @@ def smallMouseMove(move):
     elif (move == "DownLeft"):
         pyautogui.move(-50,50)
 
+def dragMouseMove(moveX, moveY):
+    moveX = float(moveX)
+    moveY = float(moveY)
+    pyautogui.move(moveX, moveY)
+        
+def mouseScroll(size):
+    size = int(size)
+    pyautogui.scroll(size)
+
 if (sys.argv[1] == "Click"):
     pyautogui.click(button = sys.argv[2])
 elif (sys.argv[1] == "Press"):
@@ -124,6 +133,10 @@ elif (sys.argv[1] == "Change Screen"):
     changeScreen()
 elif (sys.argv[1] == "Change Program"):
     changeProgram(sys.argv[2])
+elif (sys.argv[1] == "Move Mouse"):
+    dragMouseMove(sys.argv[2], sys.argv[3])
+elif (sys.argv[1] == "Scroll"):
+    mouseScroll(sys.argv[2])
     
 
 ## Possíveis tipos de comando:

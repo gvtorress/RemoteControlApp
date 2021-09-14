@@ -16,12 +16,14 @@ export function Button(props){
 
   function newTab(pressType){
     if (props.text === "Change Screen"){
-      tab = ""  
+      tab = ""
     } else {
       if (tab === "select" || tab === "") {
         tab = "init"
+      } else if (tab === "init" && pressType === "long") {
+        tab = "select"
       } else if (tab === "init") {
-        tab = "search" 
+        tab = "search"
       } else if (tab === "search" && pressType === "long") {
         tab = "select"
       }

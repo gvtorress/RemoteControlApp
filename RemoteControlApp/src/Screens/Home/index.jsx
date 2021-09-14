@@ -1,12 +1,11 @@
 import React from 'react'
 
-import { Image, View } from 'react-native'
+import { View, ScrollView } from 'react-native'
 import { SendText } from '../../Components/SendText'
 import { Programs } from '../../Components/Programs'
 import { Button } from '../../Components/Button'
 import { DoubleButton } from '../../Components/DoubleButton'
 import { MovieButton } from '../../Components/MovieButton'
-import { MouseMove } from '../../Components/MouseMove'
 
 import { theme } from '../../global/@styles/theme'
 
@@ -16,7 +15,7 @@ export function Home() {
     const { iconBackground, twitchBackground, googleBackground, youtubeBackground} = theme.colors
     
     return (
-        <View style={styles.container}>
+        <ScrollView contentContainerStyle={styles.container} scrollEnabled="false" keyboardShouldPersistTaps="never">
             <View>
                 <SendText></SendText>
                 <View style={styles.buttons}>
@@ -81,6 +80,6 @@ export function Home() {
                     />
                 </View>
             </View>
-        </View>
+        </ScrollView>
     )
 }
