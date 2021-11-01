@@ -116,6 +116,16 @@ def dragMouseMove(moveX, moveY):
 def mouseScroll(size):
     size = int(size)
     pyautogui.scroll(size)
+    
+def openInNewWindow():
+    pyautogui.keyDown("ctrl")
+    pyautogui.press("l")
+    pyautogui.press("c")
+    pyautogui.press("w")
+    pyautogui.press("n")
+    pyautogui.press("v")
+    pyautogui.keyUp("ctrl")
+    pyautogui.press("enter")
 
 if (sys.argv[1] == "Click"):
     pyautogui.click(button = sys.argv[2])
@@ -137,6 +147,8 @@ elif (sys.argv[1] == "Move Mouse"):
     dragMouseMove(sys.argv[2], sys.argv[3])
 elif (sys.argv[1] == "Scroll"):
     mouseScroll(sys.argv[2])
+elif (sys.argv[1] == "New Window"):
+    openInNewWindow()
     
 
 ## Possíveis tipos de comando:

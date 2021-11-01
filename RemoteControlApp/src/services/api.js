@@ -1,10 +1,15 @@
 import axios from 'axios'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { COLLECTION_CURRENTIP } from '../config/database'
+import { useEffect } from 'react'
 
 export function API() {
     let storage = ''
     let storageParse = ''
+
+    useEffect(() => {
+        axios.defaults.timeout = 1000
+    }, [])
 
     async function storageFunc() {
         storage = await AsyncStorage.getItem(COLLECTION_CURRENTIP)
