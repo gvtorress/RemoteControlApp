@@ -17,6 +17,7 @@ export function Mouse() {
     let y0 = 0
     let dx = 0
     let dy = 0
+    let sameMovement = 0
 
     async function api(body, type) {
         const ip = await AsyncStorage.getItem(COLLECTION_CURRENTIP)
@@ -30,6 +31,7 @@ export function Mouse() {
             await response.post('/python', body)
         }
     }
+
     const panResponder = useRef(
         PanResponder.create({
             onStartShouldSetPanResponder: (evt, gestureState) => true,
@@ -39,27 +41,78 @@ export function Mouse() {
             onPanResponderGrant: (evt, gestureState) => {
                 x0 = gestureState.x0
                 y0 = gestureState.y0
+                sameMovement = evt.nativeEvent.changedTouches.length
             },
             onPanResponderMove: (evt, gestureState) => {
                 const activeTouches = evt.nativeEvent.changedTouches.length
-                if (activeTouches == 1) {
+                if (activeTouches === 1 && activeTouches === sameMovement) {
                     dx = gestureState.moveX - x0
                     dy = gestureState.moveY - y0
+                    vx = gestureState.vx
+                    vy = gestureState.vy
+                    console.log(gestureState.vx * 10)
+                    console.log(gestureState.vy * 10)
                     const body = {
                         type: 'Move Mouse',
                         command1: dx * 5,
                         command2: dy * 5
                     }
+                    if (vx * 10 > 5 && vy * 10 < 5) {
+                        const body = {
+                            type: 'Move Mouse',
+                            command1: dx * 10,
+                            command2: dy * 5
+                        }
+                    } else if (vx * 10 < 5 && vy * 10 > 5) {
+                        const body = {
+                            type: 'Move Mouse',
+                            command1: dx * 5,
+                            command2: dy * 10
+                        }
+                    } else if (vx * 10 > 5 && vy * 10 > 5) {
+                        const body = {
+                            type: 'Move Mouse',
+                            command1: dx * 10,
+                            command2: dy * 10
+                        }
+                    } else if (vx * 10 < 1 && vy * 10 > 1) {
+                        const body = {
+                            type: 'Move Mouse',
+                            command1: dx,
+                            command2: dy * 5
+                        }
+                    } else if (vx * 10 > 1 && vy * 10 < 1) {
+                        const body = {
+                            type: 'Move Mouse',
+                            command1: dx * 5,
+                            command2: dy
+                        }
+                    } else if (vx * 10 < 1 && vy * 10 < 1) {
+                        const body = {
+                            type: 'Move Mouse',
+                            command1: dx,
+                            command2: dy
+                        }
+                    }
+                    console.log(body.command1)
+                    console.log(body.command2)
 
                     x0 = gestureState.moveX
                     y0 = gestureState.moveY
-                    api(body, 1)
-                } else {
+                    if (dx === 0 && dy === 0) {
+                    } else {
+                        api(body, 1)
+                    }
+                } else if (
+                    activeTouches === 2 &&
+                    activeTouches === sameMovement
+                ) {
                     dy = gestureState.moveY - y0
                     const body = {
                         type: 'Scroll',
                         command: dy * 20
                     }
+                    console.log(gestureState.vy * 10)
                     y0 = gestureState.moveY
                     api(body, 2)
                 }
