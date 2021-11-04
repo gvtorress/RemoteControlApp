@@ -18,6 +18,10 @@ export function IPSignIn() {
     let ipFinal = ''
     navigation = useNavigation()
 
+    useEffect(() => {
+        axios.defaults.timeout = 1000
+    }, [])
+
     async function successCallback(i) {
         ipFinal = i
         await AsyncStorage.setItem(
@@ -58,19 +62,17 @@ export function IPSignIn() {
             const api = axios.create({
                 baseURL: `http://${ip[i]}:8000/main`
             })
-            const test = await api.get('/')
+            const test = await api.get('/').catch(() => failureCallback())
             // .then(() => {
             //     successCallback(ip[i])
             // })
             // .catch(error => {
             //     failureCallback()
             // })
-            if (test) {
+            if (typeof test !== 'undefined') {
                 console.log(test.data.message)
                 successCallback(ip[i])
                 break
-            } else {
-                failureCallback()
             }
         }
     }
