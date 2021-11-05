@@ -8,8 +8,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import axios from 'axios'
 import { COLLECTION_CURRENTIP } from '../../config/database'
 
-import { API } from '../../services/api'
-
 import { styles } from './styles'
 
 export function Button(props) {
@@ -43,8 +41,6 @@ export function Button(props) {
             newTab(pressType)
             body.command = tab
         } else if (props.text === 'Mouse') {
-            // const ip2 = await AsyncStorage.getItem(COLLECTION_CURRENTIP)
-            // console.log(ip2)
             navigation.navigate('Mouse')
         } else {
             body.type = 'Command'

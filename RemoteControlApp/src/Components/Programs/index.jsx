@@ -6,8 +6,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { COLLECTION_CURRENTIP } from '../../config/database'
 import axios from 'axios'
 
-import { API } from '../../services/api'
-
 import { styles } from './styles'
 
 export function Programs(props) {

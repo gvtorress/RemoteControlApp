@@ -13,7 +13,6 @@ import { styles } from './styles'
 import { COLLECTION_CURRENTIP, COLLECTION_IPLIST } from '../../config/database'
 
 export function IPSignIn() {
-    const [ipL, setIpL] = useState([])
     const ip = []
     let ipFinal = ''
     navigation = useNavigation()
@@ -52,7 +51,6 @@ export function IPSignIn() {
     async function handlePress() {
         const response = await AsyncStorage.getItem(COLLECTION_IPLIST)
         const ipList = response ? JSON.parse(response) : []
-        setIpL(ipList)
         console.log(ipList)
         await AsyncStorage.removeItem(COLLECTION_CURRENTIP)
         ipList.map(item => {

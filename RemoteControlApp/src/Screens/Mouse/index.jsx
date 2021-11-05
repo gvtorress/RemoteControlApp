@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 
 import { View, Button, PanResponder } from 'react-native'
 
@@ -50,8 +50,6 @@ export function Mouse() {
                     dy = gestureState.moveY - y0
                     vx = gestureState.vx
                     vy = gestureState.vy
-                    console.log(gestureState.vx * 10)
-                    console.log(gestureState.vy * 10)
                     const body = {
                         type: 'Move Mouse',
                         command1: dx * 5,
@@ -94,9 +92,6 @@ export function Mouse() {
                             command2: dy
                         }
                     }
-                    console.log(body.command1)
-                    console.log(body.command2)
-
                     x0 = gestureState.moveX
                     y0 = gestureState.moveY
                     if (dx === 0 && dy === 0) {
@@ -112,7 +107,6 @@ export function Mouse() {
                         type: 'Scroll',
                         command: dy * 20
                     }
-                    console.log(gestureState.vy * 10)
                     y0 = gestureState.moveY
                     api(body, 2)
                 }
@@ -147,6 +141,10 @@ export function Mouse() {
     function handlePressBack() {
         navigation.goBack()
     }
+
+    useEffect(() => {
+        axios.defaults.timeout = 10000
+    }, [])
 
     return (
         <View>

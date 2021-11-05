@@ -8,8 +8,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import { COLLECTION_CURRENTIP, COLLECTION_IPLIST } from '../../config/database'
 
-import { API } from '../../services/api'
-
 import { styles } from './styles'
 import axios from 'axios'
 
