@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { Text, View, ScrollView, Button } from 'react-native'
+import { Text, View, ScrollView, Button, Alert } from 'react-native'
 
 import { useNavigation } from '@react-navigation/core'
 
@@ -61,17 +61,14 @@ export function IPSignIn() {
                 baseURL: `http://${ip[i]}:8000/main`
             })
             const test = await api.get('/').catch(() => failureCallback())
-            // .then(() => {
-            //     successCallback(ip[i])
-            // })
-            // .catch(error => {
-            //     failureCallback()
-            // })
             if (typeof test !== 'undefined') {
                 console.log(test.data.message)
                 successCallback(ip[i])
                 break
             }
+        }
+        if (typeof test === 'undefined') {
+            Alert.alert('Nenhum IP válido, favor inserir')
         }
     }
 
