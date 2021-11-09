@@ -149,8 +149,6 @@ elif (sys.argv[1] == "Scroll"):
     mouseScroll(sys.argv[2])
 elif (sys.argv[1] == "New Window"):
     openInNewWindow()
-    
-
 ## Possíveis tipos de comando:
 ## -Clicar mouse (botão direito ou esquerdo);
 ## -Apertar enter (pós escrever texto no google por exemplo);
