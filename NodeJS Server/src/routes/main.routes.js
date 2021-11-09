@@ -4,62 +4,15 @@ import ChildProcess, { spawn } from 'child_process'
 const router = express.Router()
 
 function runPythonScript(filePath, type, command) {
-    return new Promise((resolve, reject) => {
-        ChildProcess.spawn(
-            'python',
-            [filePath, type, command],
-            [],
-            (err, stdout, stderr) => {
-                if (err) {
-                    console.log(
-                        `Exec: Fail to run python script: ${type} ${command}`
-                    )
-                    console.log(err)
-                    console.log(stderr)
-                    return reject(err)
-                }
-
-                return resolve(stdout)
-            }
-        )
-    })
+    ChildProcess.spawn('python', [filePath, type, command])
 }
 
 function runPythonScript2(filePath, type, command1, command2) {
-    return new Promise((resolve, reject) => {
-        ChildProcess.spawn(
-            'python',
-            [filePath, type, command1, command2],
-            [],
-            (err, stdout, stderr) => {
-                if (err) {
-                    console.log(
-                        `Exec: Fail to run python script: ${type} ${command}`
-                    )
-                    console.log(err)
-                    console.log(stderr)
-                    return reject(err)
-                }
-
-                return resolve(stdout)
-            }
-        )
-    })
+    ChildProcess.spawn('python', [filePath, type, command1, command2])
 }
 
 function execCommand(command) {
-    return new Promise((resolve, reject) => {
-        ChildProcess.exec(command, (err, stdout, stderr) => {
-            if (err) {
-                console.log(`Exec: Fail to execute command ${command}`)
-                console.log(err)
-                console.log(stderr)
-                return reject(err)
-            }
-
-            return resolve(stdout)
-        })
-    })
+    ChildProcess.exec(command)
 }
 
 router.get('/', async (req, res) => {
@@ -73,10 +26,9 @@ router.post('/python', async (req, res) => {
 
     try {
         runPythonScript(filePath, type, command)
-        console.log('Connected')
-        console.log(type, command)
         res.json({ message: 'Command received' })
     } catch (err) {
+        console.log(err.message)
         res.json({ error: true, message: err.message })
     }
 })
@@ -88,22 +40,20 @@ router.post('/python2', async (req, res) => {
 
     try {
         runPythonScript2(filePath, type, command1, command2)
-        console.log('Connected')
-        console.log(type, command1, command2)
         res.json({ message: 'Command received' })
     } catch (err) {
+        console.log(err.message)
         res.json({ error: true, message: err.message })
     }
 })
 
 router.post('/command', async (req, res) => {
     const { command } = req.body
-    // const command = 'start chrome www.google.com'
     try {
         execCommand(command)
-        console.log('Connected')
         res.json({ message: 'Command received' })
     } catch (err) {
+        console.log(err.message)
         res.json({ error: true, message: err.message })
     }
 })
