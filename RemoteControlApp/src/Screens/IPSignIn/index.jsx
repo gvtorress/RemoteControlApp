@@ -27,14 +27,11 @@ export function IPSignIn() {
             COLLECTION_CURRENTIP,
             JSON.stringify(ipFinal)
         )
-        console.log('Sucesso')
         console.log(ipFinal)
         navigation.navigate('Home')
     }
 
-    function failureCallback() {
-        console.log('IP Inválido')
-    }
+    function failureCallback() {}
 
     // useEffect(() => {
     //     async function RefreshList() {
@@ -51,6 +48,7 @@ export function IPSignIn() {
     async function handlePress() {
         const response = await AsyncStorage.getItem(COLLECTION_IPLIST)
         const ipList = response ? JSON.parse(response) : []
+        let correctIP = false
         console.log(ipList)
         await AsyncStorage.removeItem(COLLECTION_CURRENTIP)
         ipList.map(item => {
@@ -64,10 +62,11 @@ export function IPSignIn() {
             if (typeof test !== 'undefined') {
                 console.log(test.data.message)
                 successCallback(ip[i])
+                correctIP = true
                 break
             }
         }
-        if (typeof test === 'undefined') {
+        if (!correctIP) {
             Alert.alert('Nenhum IP válido, favor inserir')
         }
     }

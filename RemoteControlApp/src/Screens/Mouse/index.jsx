@@ -50,53 +50,61 @@ export function Mouse() {
                     dy = gestureState.moveY - y0
                     vx = gestureState.vx
                     vy = gestureState.vy
-                    const body = {
-                        type: 'Move Mouse',
-                        command1: dx * 5,
-                        command2: dy * 5
-                    }
-                    if (vx * 10 > 5 && vy * 10 < 5) {
-                        const body = {
-                            type: 'Move Mouse',
-                            command1: dx * 10,
-                            command2: dy * 5
-                        }
-                    } else if (vx * 10 < 5 && vy * 10 > 5) {
-                        const body = {
-                            type: 'Move Mouse',
-                            command1: dx * 5,
-                            command2: dy * 10
-                        }
-                    } else if (vx * 10 > 5 && vy * 10 > 5) {
-                        const body = {
-                            type: 'Move Mouse',
-                            command1: dx * 10,
-                            command2: dy * 10
-                        }
-                    } else if (vx * 10 < 1 && vy * 10 > 1) {
-                        const body = {
-                            type: 'Move Mouse',
-                            command1: dx,
-                            command2: dy * 5
-                        }
-                    } else if (vx * 10 > 1 && vy * 10 < 1) {
-                        const body = {
-                            type: 'Move Mouse',
-                            command1: dx * 5,
-                            command2: dy
-                        }
-                    } else if (vx * 10 < 1 && vy * 10 < 1) {
-                        const body = {
-                            type: 'Move Mouse',
-                            command1: dx,
-                            command2: dy
-                        }
-                    }
-                    x0 = gestureState.moveX
-                    y0 = gestureState.moveY
-                    if (dx === 0 && dy === 0) {
+                    if (
+                        dx * 5 < 10 &&
+                        dy * 5 < 10 &&
+                        vx * 10 < 1 &&
+                        vy * 10 < 1
+                    ) {
                     } else {
-                        api(body, 1)
+                        const body = {
+                            type: 'Move Mouse',
+                            command1: dx * 5,
+                            command2: dy * 5
+                        }
+                        if (vx * 10 > 5 && vy * 10 < 5) {
+                            const body = {
+                                type: 'Move Mouse',
+                                command1: dx * 10,
+                                command2: dy * 5
+                            }
+                        } else if (vx * 10 < 5 && vy * 10 > 5) {
+                            const body = {
+                                type: 'Move Mouse',
+                                command1: dx * 5,
+                                command2: dy * 10
+                            }
+                        } else if (vx * 10 > 5 && vy * 10 > 5) {
+                            const body = {
+                                type: 'Move Mouse',
+                                command1: dx * 10,
+                                command2: dy * 10
+                            }
+                        } else if (vx * 10 < 1 && vy * 10 > 1) {
+                            const body = {
+                                type: 'Move Mouse',
+                                command1: dx,
+                                command2: dy * 5
+                            }
+                        } else if (vx * 10 > 1 && vy * 10 < 1) {
+                            const body = {
+                                type: 'Move Mouse',
+                                command1: dx * 5,
+                                command2: dy
+                            }
+                        } else if (vx * 10 < 1 && vy * 10 < 1) {
+                            const body = {
+                                type: 'Move Mouse',
+                                command1: dx,
+                                command2: dy
+                            }
+                        }
+                        x0 = gestureState.moveX
+                        y0 = gestureState.moveY
+                        if (dx === 0 && dy === 0) {
+                        } else {
+                            api(body, 1)
+                        }
                     }
                 } else if (
                     activeTouches === 2 &&
