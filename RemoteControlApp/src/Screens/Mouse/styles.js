@@ -2,7 +2,7 @@ import { StyleSheet, Dimensions } from 'react-native'
 
 import { theme } from '../../global/@styles/theme'
 
-const { googleBackground, iconBackground } = theme.colors
+const { whiteBackground } = theme.colors
 
 export const styles = StyleSheet.create({
     container: {
@@ -12,14 +12,14 @@ export const styles = StyleSheet.create({
         marginHorizontal: 60,
         width: Dimensions.get('window').width - 120,
         height: 40,
-        backgroundColor: googleBackground,
+        backgroundColor: whiteBackground,
         borderRadius: 8
     },
     button: {
         width: '50%',
         height: '100%',
         borderRadius: 8,
-        backgroundColor: googleBackground,
+        backgroundColor: whiteBackground,
         justifyContent: 'flex-start'
     },
     view: {
@@ -37,10 +37,10 @@ export const styles = StyleSheet.create({
     mousePad: {
         width: Dimensions.get('window').width - 120,
         height: 140,
-        backgroundColor: googleBackground,
+        backgroundColor: whiteBackground,
         marginHorizontal: 60,
         marginBottom: 5,
-        marginTop: 30,
+        marginTop: 100,
         borderRadius: 8
     }
 })

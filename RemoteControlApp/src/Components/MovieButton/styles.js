@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 
 import { theme } from '../../global/@styles/theme'
 
-const { googleBackground } = theme.colors
+const { whiteBackground } = theme.colors
 
 export const styles = StyleSheet.create({
     container: {
@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     content: {
         width: 40,
         height: 30,
-        backgroundColor: googleBackground,
+        backgroundColor: whiteBackground,
         borderRadius: 8,
         alignSelf: 'center'
     },
@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
         marginTop: 2
     },
     text: {
-        color: googleBackground,
+        color: whiteBackground,
         fontSize: 10,
         textAlign: 'center'
     }

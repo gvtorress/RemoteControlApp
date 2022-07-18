@@ -2,7 +2,7 @@ import { StyleSheet, Dimensions } from 'react-native'
 
 import { theme } from '../../global/@styles/theme'
 
-const { googleBackground } = theme.colors
+const { whiteBackground } = theme.colors
 
 export const styles = StyleSheet.create({
     container: {
@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
         alignSelf: 'center'
     },
     text: {
-        color: googleBackground,
+        color: whiteBackground,
         width: (Dimensions.get('window').width - 220) / 3 + 2,
         textAlign: 'center'
     },
@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
     amazon: {
         width: '60%',
         height: '55%',
-        backgroundColor: googleBackground,
+        backgroundColor: whiteBackground,
         alignSelf: 'center',
         marginTop: 12
     }

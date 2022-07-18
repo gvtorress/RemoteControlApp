@@ -15,10 +15,11 @@ import { styles } from './styles'
 
 export function Home() {
     const {
-        iconBackground,
-        twitchBackground,
-        googleBackground,
-        youtubeBackground
+        blackBackground,
+        purpleBackground,
+        whiteBackground,
+        redBackground,
+        darkBlueBackground
     } = theme.colors
 
     useEffect(() => {
@@ -104,17 +105,17 @@ export function Home() {
                 <View style={{ marginTop: 50 }}></View>
                 <View style={styles.programs}>
                     <Programs
-                        color={iconBackground}
+                        color={blackBackground}
                         text="Netflix"
                         icon={require('../../Assets/netflix.png')}
                     />
                     <Programs
-                        color={twitchBackground}
+                        color={purpleBackground}
                         text="Twitch"
                         icon={require('../../Assets/twitch.png')}
                     />
                     <Programs
-                        color={googleBackground}
+                        color={whiteBackground}
                         text="Google"
                         icon={require('../../Assets/google.png')}
                     />
@@ -122,37 +123,37 @@ export function Home() {
 
                 <View style={styles.programs}>
                     <Programs
-                        color={iconBackground}
+                        color={blackBackground}
                         text="Espn"
                         icon={require('../../Assets/espn.png')}
                     />
                     <Programs
-                        color={youtubeBackground}
+                        color={redBackground}
                         text="Youtube"
                         icon={require('../../Assets/youtube.png')}
                     />
                     <Programs
                         isAmazon
-                        color={iconBackground}
+                        color={blackBackground}
                         text="Prime Video"
                         icon={require('../../Assets/amazonprimevideo.png')}
                     />
                 </View>
                 <View style={styles.programs}>
                     <Programs
-                        color={googleBackground}
+                        color={whiteBackground}
                         text="Star+"
                         icon={require('../../Assets/starplus.png')}
                     />
                     <Programs
                         isAmazon
-                        color={iconBackground}
+                        color={darkBlueBackground}
                         text="Disney+"
                         icon={require('../../Assets/disneyplus.png')}
                     />
                     <Programs
                         isAmazon
-                        color={iconBackground}
+                        color={blackBackground}
                         text="HBO Max"
                         icon={require('../../Assets/hbomax.png')}
                     />

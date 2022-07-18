@@ -3,7 +3,7 @@ import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
 import { theme } from '../../global/@styles/theme'
 
-const { googleBackground, iconBackground } = theme.colors
+const { whiteBackground, blackBackground } = theme.colors
 
 export const styles = StyleSheet.create({
     container: {
@@ -16,11 +16,11 @@ export const styles = StyleSheet.create({
     },
     text: {
         fontSize: 14,
-        color: googleBackground
+        color: whiteBackground
     },
     button: {
         width: Dimensions.get('window').width - 120,
-        backgroundColor: iconBackground,
+        backgroundColor: blackBackground,
         borderRadius: 8
     }
 })

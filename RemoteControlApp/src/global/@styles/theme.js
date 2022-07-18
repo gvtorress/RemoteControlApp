@@ -3,12 +3,14 @@ export const theme = {
         background: '#222222',
 
         // Netflix, ESPN and Amazon Prime Video Icons
-        iconBackground: '#000000',
+        blackBackground: '#000000',
 
-        twitchBackground: '#9147FF',
+        purpleBackground: '#9147FF',
 
-        googleBackground: '#FFFFFF',
+        whiteBackground: '#FFFFFF',
 
-        youtubeBackground: '#C43B2B'
+        redBackground: '#C43B2B',
+
+        darkBlueBackground: '#1E4384'
     }
 }

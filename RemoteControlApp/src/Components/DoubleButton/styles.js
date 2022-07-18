@@ -2,14 +2,14 @@ import { StyleSheet } from 'react-native'
 
 import { theme } from '../../global/@styles/theme'
 
-const { googleBackground, iconBackground } = theme.colors
+const { whiteBackground, blackBackground } = theme.colors
 
 export const styles = StyleSheet.create({
     container: {
         width: 40,
         height: 100,
         borderRadius: 20,
-        backgroundColor: googleBackground
+        backgroundColor: whiteBackground
     },
     content: {
         width: 40,
@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
         alignSelf: 'center'
     },
     text: {
-        color: iconBackground,
+        color: blackBackground,
         fontSize: 10,
         textAlign: 'center',
         marginTop: 7
