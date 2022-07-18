@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
         position: 'absolute'
     },
     amazon: {
-        width: '55%',
+        width: '60%',
         height: '55%',
         backgroundColor: googleBackground,
         alignSelf: 'center',

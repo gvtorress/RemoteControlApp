@@ -1,5 +1,5 @@
 import express from 'express'
-import ChildProcess, { spawn } from 'child_process'
+import ChildProcess from 'child_process'
 
 const router = express.Router()
 
@@ -16,6 +16,7 @@ function execCommand(command) {
 }
 
 router.get('/', async (req, res) => {
+    execCommand('dir')
     res.json({ message: 'Connected' })
 })
 

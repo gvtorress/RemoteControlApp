@@ -33,6 +33,16 @@ export function Programs(props) {
                 break
             case 'Prime Video':
                 body.command = 'start chrome https://www.primevideo.com/'
+                break
+            case 'Star+':
+                body.command = 'start chrome https://www.starplus.com/home/'
+                break
+            case 'Disney+':
+                body.command = 'start chrome https://www.disneyplus.com/home/'
+                break
+            case 'HBO Max':
+                body.command = 'start chrome https://www.hbomax.com/'
+                break
         }
         const ip = await AsyncStorage.getItem(COLLECTION_CURRENTIP)
         const ipParse = JSON.parse(ip)
